@@ -2,8 +2,10 @@
 :root {
     --color-primary: #aa5656;
     --color-secondary: #f1dbbf;
-    --color-win: #698269;
-    --color-lose: #aa5656;
+    --color-dark: #000;
+    --color-white: #fff;
+    --color-player: #56aa68;
+    --color-enemy: #aa5656;
 }
 
 * {
@@ -14,8 +16,25 @@
 
 body {
     font-family: 'Roboto', sans-serif;
+    height: 100vh;
+    display: flex;
+    align-items: center;
 }
-button,
+.index-container,
+.game-container {
+    max-width: 500px;
+    width: fit-content;
+    border: 5px solid var(--color-primary);
+    border-radius: 25px;
+    padding: 16px 32px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 95vh;
+}
+
 .btn {
     width: 256px;
     height: 64px;
@@ -26,6 +45,11 @@ button,
     border-radius: 16px;
     background-color: var(--color-primary);
     color: var(--color-secondary);
+    transition: all 0.5s;
+}
+button:hover,
+.btn:hover {
+    transform: scale(0.9);
 }
 
 a {
@@ -47,6 +71,11 @@ h1 {
     width: 72px;
     height: 72px;
 }
+.icons-group {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
 .icon.rock {
     background-image: url('assets/rock.svg');
 }
@@ -55,4 +84,82 @@ h1 {
 }
 .icon.scissors {
     background-image: url('assets/scissors.svg');
+}
+
+/* game.html */
+.field {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+.sign-container {
+    display: flex;
+    gap: 16px;
+}
+.sign {
+    border: none;
+    outline: none;
+    background: transparent;
+    width: 64px;
+    height: 64px;
+}
+.sign .icon {
+    width: inherit;
+    height: inherit;
+}
+h4 {
+    font-size: 32px;
+    text-transform: uppercase;
+}
+.player {
+    color: var(--color-player);
+}
+.computer {
+    color: var(--color-enemy);
+}
+.player > h4 {
+    margin-top: 8px;
+}
+.computer > h4 {
+    margin-bottom: 8px;
+}
+.result {
+    width: 100%;
+    position: relative;
+}
+.result .line-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: end;
+}
+.result .line-container .point {
+    font-size: 24px;
+}
+.result hr {
+    width: 100%;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px dashed var(--color-dark);
+}
+#match-result {
+    position: absolute;
+    background-color: var(--color-white);
+    padding: 12px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 32px;
+    text-transform: uppercase;
+    display: none;
+}
+.selected-sign {
+    width: 128px;
+    height: 128px;
+    border: 2px dashed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
