@@ -22,8 +22,6 @@ body {
 }
 .index-container,
 .game-container {
-    max-width: 500px;
-    width: fit-content;
     border: 5px solid var(--color-primary);
     border-radius: 25px;
     padding: 16px 32px;
@@ -57,7 +55,7 @@ a {
 }
 
 h1 {
-    font-size: 48px;
+    font-size: 32px;
     text-transform: uppercase;
     text-align: center;
     color: var(--color-primary);
@@ -76,13 +74,16 @@ h1 {
     display: flex;
     justify-content: space-around;
 }
-.icon.rock {
+.icon.rock,
+.icon[data-sign='rock'] {
     background-image: url('assets/rock.svg');
 }
-.icon.paper {
+.icon.paper,
+.icon[data-sign='paper'] {
     background-image: url('assets/paper.svg');
 }
-.icon.scissors {
+.icon.scissors,
+.icon[data-sign='scissors'] {
     background-image: url('assets/scissors.svg');
 }
 
@@ -147,13 +148,12 @@ h4 {
 #match-result {
     position: absolute;
     background-color: var(--color-white);
-    padding: 12px;
+    padding: 4px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 32px;
+    font-size: 28px;
     text-transform: uppercase;
-    display: none;
 }
 .selected-sign {
     width: 128px;
